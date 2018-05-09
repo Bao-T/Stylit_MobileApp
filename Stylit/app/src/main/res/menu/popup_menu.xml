@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="relevance"/>
+    <item
+        android:title="date-posted-asc"/>
+    <item
+        android:title="date-posted-desc"/>
+    <item
+        android:title="date-taken-asc"/>
+    <item
+        android:title="date-taken-desc"/>
+    <item
+        android:title="interestingness-desc"/>
+    <item
+        android:title="interestingness-asc"/>
+
+
+
+</menu>

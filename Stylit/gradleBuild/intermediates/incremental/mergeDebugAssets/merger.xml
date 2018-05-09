@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config=":openCVLibrary341"><source path="C:\Users\Bao\Desktop\Stylit\openCVLibrary341\build\intermediates\bundles\debug\assets"/></dataSet><dataSet config="main"><source path="C:\Users\Bao\Desktop\Stylit\assets"/><source path="C:\Users\Bao\Desktop\Stylit\gradleBuild\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="C:\Users\Bao\Desktop\Stylit\build-types\debug\assets"/></dataSet></merger>

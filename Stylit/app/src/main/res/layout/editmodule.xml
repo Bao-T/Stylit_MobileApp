@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="32dp"
+        android:theme="@style/AppTheme">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+            <EditText
+                android:id="@+id/classification"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:gravity="left"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="Search" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:paddingBottom="16dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="16dp" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/flickrSort"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="290dp"
+                android:layout_weight="1"
+                android:text="relevance"
+                android:textSize="8sp" />
+        </RelativeLayout>
+
+        <HorizontalScrollView
+            android:id="@+id/horizontal_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp">
+
+            <LinearLayout
+                android:id="@+id/linear"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:orientation="horizontal"></LinearLayout>
+
+        </HorizontalScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Style Mixer" />
+
+            <SeekBar
+                android:id="@+id/styleBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:thumbTint="@color/white" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Exposure" />
+
+            <SeekBar
+                android:id="@+id/exposureBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:thumbTint="@color/white" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Contrast" />
+
+            <SeekBar
+                android:id="@+id/contrastBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:thumbTint="@color/white" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/progressBarHolder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.8"
+        android:animateLayoutChanges="true"
+        android:background="#000000"
+        android:visibility="gone">
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="true" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="400dp"
+            android:gravity="center_horizontal"
+            android:text="Keeping the magic real..."
+            android:textSize="18sp" />
+    </FrameLayout>
+</RelativeLayout>
