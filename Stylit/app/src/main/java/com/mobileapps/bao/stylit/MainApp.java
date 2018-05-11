@@ -19,7 +19,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import org.opencv.android.OpenCVLoader;
+import com.mobileapps.bao.stylit.SplashActivity;
 public class MainApp extends AppCompatActivity {
 
     Button editImage;
@@ -37,5 +37,6 @@ public class MainApp extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
     }}

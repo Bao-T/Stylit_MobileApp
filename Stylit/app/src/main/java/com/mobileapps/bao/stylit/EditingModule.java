@@ -102,7 +102,9 @@ public class EditingModule extends AppCompatActivity implements LoaderManager.Lo
     String param;
     Button search;
     Button flickrSort;
+    Button uploadStyle;
     private static final int PICK_IMAGE = 100;
+    private static final int PICK_STYLE = 101;
     Uri imageUri;
     Bitmap originalImageBitmap;
     Bitmap originalImageBitmapScaled;
@@ -125,6 +127,15 @@ public class EditingModule extends AppCompatActivity implements LoaderManager.Lo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.editmodule);
         progressBarHolder = (FrameLayout) findViewById(R.id.progressBarHolder);
+        uploadStyle = (Button) findViewById(R.id.uploadStyle);
+        uploadStyle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent gallery = new Intent(Intent.ACTION_GET_CONTENT, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+                gallery.setType("image/*");
+                startActivityForResult(gallery, PICK_STYLE);
+            }
+        });
         search = (Button) findViewById(R.id.search);
         search.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -352,6 +363,34 @@ public class EditingModule extends AppCompatActivity implements LoaderManager.Lo
             currStyleMix = currStyleProcessedBitmap;
             originalImageBitmapScaled = currStyleProcessedBitmap;
 
+        }
+        else if (resultCode == RESULT_OK && requestCode == PICK_STYLE) {
+            imageUri = data.getData();
+            try {
+                currStyle = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
+                Bitmap filterPreviewBitmap = getMaxSizedBitmap(originalImageBitmap.copy(Config.RGB_565, true), 1000);
+                Mat filterPreviewMat = new Mat();
+                Utils.bitmapToMat(filterPreviewBitmap, filterPreviewMat, true);
+                Bitmap styleBM = getResizedBitmap(currStyle.copy(Config.RGB_565, true), filterPreviewBitmap.getWidth(), filterPreviewBitmap.getHeight());
+                Mat styleMat = new Mat();
+                Utils.bitmapToMat(styleBM, styleMat, true);
+                Mat result = new Mat();
+                Bitmap resultBM = filterPreviewBitmap.copy(Config.RGB_565, true);
+                xiaoTransfer(filterPreviewMat.getNativeObjAddr(), styleMat.getNativeObjAddr(), result.getNativeObjAddr());
+                Imgproc.cvtColor(result, result, Imgproc.COLOR_BGR2RGB);
+                Utils.matToBitmap(result, resultBM);
+                currStyleProcessedBitmap = resultBM;
+                currStyleMix = resultBM;
+                float exposure = exposureBar.getProgress() - 255;
+                float contrast = contrastBar.getProgress() / 100f;
+                imageViewMain.setImageBitmap(changeBitmapContrastBrightness(currStyleProcessedBitmap, contrast, exposure));
+                styleBar.setProgress(styleBar.getMax());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        else{
+            finish();
         }
 
     }

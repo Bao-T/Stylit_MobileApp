@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mobileapps.bao.stylit">
 
@@ -9,6 +10,7 @@
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -18,11 +20,11 @@
     <application
         android:allowBackup="true"
         android:debuggable="true"
+        android:icon = "@drawable/stylit_ic"
         android:label="Stylit"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainApp"
-            android:label="Stylit"
+            android:name=".SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,10 +32,17 @@
                 <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".EditingModule"
+        <activity
+            android:name=".MainApp"
+            android:label="Stylit"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity
+            android:name=".EditingModule"
             android:label="Editor"
-            android:screenOrientation="portrait"
-            android:parentActivityName="com.mobileapps.bao.stylit.MainApp" >
+            android:parentActivityName=".MainApp"
+            android:screenOrientation="portrait">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data

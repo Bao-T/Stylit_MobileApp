@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mobileapps.bao.stylit.SplashActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="182dp"
+                android:layout_height="179dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="144dp"
+                android:src="@drawable/stylit_ic_alpha"
+                tools:layout_editor_absoluteX="101dp"
+                tools:layout_editor_absoluteY="96dp" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/imageView3"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="154dp"
+                android:fontFamily="cursive"
+                android:gravity="center_vertical|center"
+                android:text="Stylit"
+                android:textColor="@color/white"
+                android:textScaleX="1.1"
+                android:textSize="50sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="156dp"
+                tools:layout_editor_absoluteY="263dp" />
+        </RelativeLayout>
+
+    </FrameLayout>
+
+</android.support.constraint.ConstraintLayout>

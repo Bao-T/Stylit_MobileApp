@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Stylit</string>
+    <string name="title_activity_splash">SplashActivity</string>
 
 </resources>
